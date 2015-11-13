@@ -7,9 +7,21 @@ exports.flowControlAnswers = {
     // if the number is divisible by 5, the function should return 'buzz';
     // if the number is divisible by 3 and 5, the function should return
     // 'fizzbuzz';
-    //
-    // otherwise the function should return the number, or false if no number
-    // was provided or the value provided is not a number
-
+    //  if no number is given or the value isn't a number, return false
+    // else, return the number
+    if (num % 15 === 0) {
+     return 'fizzbuzz';
+   }
+    if (num % 3 === 0) {
+      return 'fizz';
+    }
+     if (num % 5 === 0){
+      return 'buzz';
+    }
+    if (typeof num !== 'number'){
+      return false;
+    }
+    return num;
   }
+
 };

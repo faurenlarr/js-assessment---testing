@@ -19,7 +19,7 @@ exports = (typeof window === 'undefined') ? global : window;
       return num === item;
      });
 
-    },
+  },
 
   removeWithoutCopy : function(arr, item) {
 
@@ -63,18 +63,44 @@ exports = (typeof window === 'undefined') ? global : window;
   },
 
   count : function(arr, item) {
-          
+    var value = 0;
+    _.each(arr, function(el,idx, array){
+          if (el === item) {
+          value += 1;
+        }
+      });
+    return value;
   },
 
   duplicates : function(arr) {
+    var sortedArray = arr.sort();
+    var emptyArray = [];
+    console.log(sortedArray);
+    for (var i = 0; i < sortedArray.length; i++) {
+      console.log(i);
+      if (sortedArray[i] === sortedArray[i+1] && !_.contains(emptyArray, sortedArray[i])) {
+        emptyArray.push(sortedArray[i]);
+        console.log(sortedArray[i]);
+      }
 
+    }
+    return emptyArray;
   },
 
   square : function(arr) {
-
+    for ( var i = 0 ; i < arr.length ; i++ ) {
+      arr[i] *= arr[i];
+    }
+    return arr;
   },
 
   findAllOccurrences : function(arr, target) {
-
-  }
+    var array = [];
+    for (var i = 0; i < arr.length; i++) {
+      if(arr[i] === target) {
+      array.push(i);
+      }
+    }
+    return array;
+  },
 };
